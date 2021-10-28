@@ -1,0 +1,80 @@
+<div class="form-container">
+  <p class="text-center h4">Nuevo Pokemon</p>
+  <br>
+  <div>
+    <form [formGroup]="pokemonRegisterForm" (ngSubmit)="!editMode ? createPokemon() : editPokemon()">
+      <div class="horizontal-container">
+        <div class="input-container">
+          <label class="form-label">Nombre: </label>
+          <mat-form-field class="input-full-width" appearance="outline">
+            <input [value]="nombre" formControlName="nombre" class="form-field" type="text" matInput >
+            <!--        <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>-->
+          </mat-form-field>
+        </div>
+        <div class="slider-container">
+          <label>
+            Ataque: &nbsp;{{ataque}}&nbsp;&nbsp;&nbsp;
+          </label>
+          <input [value]="ataque" (input)="changeAtaque($event)" class="slider" type="range" min="0" max="100" step="1">
+          <label>&nbsp;&nbsp;100</label>
+
+        </div>
+      </div>
+      <div class="horizontal-container">
+        <div class="input-container">
+          <label class="form-label">Imagen: </label>
+          <mat-form-field class="input-full-width" appearance="outline">
+            <input [value]="imagen" formControlName="imagen" class="form-field" type="text" matInput >
+            <!--        <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>-->
+          </mat-form-field>
+        </div>
+        <div class="slider-container">
+          <label>
+            Defensa: &nbsp;{{defensa}}&nbsp;&nbsp;&nbsp;
+          </label>
+          <input [value]="defensa" (input)="changeDefensa($event)" class="slider" type="range" min="0" max="100" step="1">
+          <label>&nbsp;&nbsp;100</label>
+
+        </div>
+      </div>
+      <div class="horizontal-container">
+        <div class="input-container">
+          <label class="form-label">Tipo: </label>
+          <select [value]="tipo" (change)="changeTipo($event)" class="form-control">
+            <option value="water" selected>Agua</option>
+            <option value="fire">Fuego</option>
+            <option value="normal">Normal</option>
+            <option value="bug">Insecto</option>
+            <option value="poison">Veneno</option>
+          </select>
+
+        </div>
+        <div class="slider-container">
+          <label>
+            Salud: &nbsp;{{salud}}&nbsp;&nbsp;&nbsp;
+          </label>
+          <input [value]="salud" (input)="changeSalud($event)" class="slider" type="range" min="0" max="100" step="1">
+          <label>&nbsp;&nbsp;100</label>
+
+        </div>
+      </div>
+      <div class="center-horizontal-container">
+        <div></div>
+        <button [disabled]="!pokemonRegisterForm.valid" type="submit" mat-button class="primary-button left-center" aria-label="Add Button">
+          <mat-icon class="add-icon">save</mat-icon>
+          Guardar
+        </button>
+        <button (click)="closePokemonForm()" mat-button class="primary-button right-center" type="button" aria-label="Add Button">
+          <mat-icon class="add-icon" (click)="exitForm()">cancel</mat-icon>
+          Cancelar
+        </button>
+        <div></div>
+      </div>
+    </form>
+
+
+  </div>
+
+
+
+</div>

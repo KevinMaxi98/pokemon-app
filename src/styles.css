@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+.primary-button {
+  /*color: blueviolet;*/
+  width: 125px;
+  height: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  background-color: #975fe5;
+  /*align-self: center;*/
+  grid-area: b;
+}
+
+.primary-button:hover {
+  background-color: blueviolet;
+}
+
+.primary-button:disabled {
+  background-color: #e4c7ff;
+}
+
+.horizontal-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 50px 50px;
+  grid-template-areas:
+    "a a a a b b b b"
+    "a a a a b b b b"
+    "c c c c d d d d"
+    "c c c c d d d d";
+}
+
+.center-horizontal-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 3fr;
+  grid-template-rows: 50px;
+  grid-gap: 5px;
+  grid-template-areas:
+    "a b c d";
+  /*justify-items: center;*/
+}
+
+.input-full-width {
+  width: 50%;
+  height: 100px;
+}
+
+

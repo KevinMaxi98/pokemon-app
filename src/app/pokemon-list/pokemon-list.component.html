@@ -1,0 +1,53 @@
+<div class="container-pokemon">
+  <h1 class="h2">Listado de Pokemon</h1>
+  <div class="horizontal-container">
+    <form class="">
+      <mat-form-field class="input-full-width" appearance="outline">
+        <input (keyup)="changeSearchValue($event)" class="search-field" type="tel" matInput placeholder="Buscar">
+        <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>
+
+      </mat-form-field>
+    </form>
+    <button (click)="showCreationForm()" mat-button class="primary-button" aria-label="Add Button">
+      <mat-icon class="add-icon">add</mat-icon>
+      Nuevo
+    </button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Ataque</th>
+      <th scope="col">Defensa</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+<!--    <div >-->
+    <tr *ngFor="let pokemon of pokemons; index as i">
+      <th *ngIf="searchValue!=='' && pokemon.name ? startsWith(pokemon.name, searchValue): true"  scope="row">{{pokemon.name}}</th>
+      <td *ngIf="searchValue!=='' && pokemon.name ? startsWith(pokemon.name, searchValue): true" >
+        <img [src]="pokemon.image" class="mr-2" style="width: 60px">
+
+      </td>
+      <td *ngIf="searchValue!=='' && pokemon.name ? startsWith(pokemon.name, searchValue): true" >{{pokemon.attack}}</td>
+      <td *ngIf="searchValue!=='' && pokemon.name ? startsWith(pokemon.name, searchValue): true" >{{pokemon.defense}}</td>
+      <td *ngIf="searchValue!=='' && pokemon.name ? startsWith(pokemon.name, searchValue): true" >
+        <button (click)="pokemon ? showEditForm(pokemon) : ''" mat-button class="no-background" aria-label="Add Button">
+          <mat-icon class="add-icon">edit</mat-icon>
+
+        </button>
+        <button (click)="pokemon ? handleRemovePokemon(pokemon) : ''" mat-button class="no-background" aria-label="Add Button">
+          <mat-icon class="add-icon">delete</mat-icon>
+
+        </button>
+      </td>
+    </tr>
+<!--    </div>-->
+    </tbody>
+  </table>
+  <br>
+  <app-pokemon-form (showPokemonForm)="closeCreationForm()" [id]="idPokemon" [editMode]="editMode" [salud]="saludPokemon" [tipo]="tipoPokemon" [ataque]="ataquePokemon" [defensa]="defensaPokemon" [nombre]="nombrePokemon" [imagen]="imagenPokemon" [hidden]="!showPokemonForm"></app-pokemon-form>
+</div>
+
