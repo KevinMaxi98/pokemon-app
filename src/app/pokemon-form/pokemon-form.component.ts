@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Pokemon} from "../../models/pokemon.model";
+import {HttpService} from "../../services/http.service";
 
 @Component({
   selector: 'app-pokemon-form',
@@ -10,13 +11,25 @@ import {Pokemon} from "../../models/pokemon.model";
 export class PokemonFormComponent implements OnInit {
 
 
+  private TIPO_POR_DEFECTO = "water"
 
+  public pokemon: Pokemon = {};
+
+  @Input() id: number = 0;
   @Input() nombre: string = "";
   @Input() imagen: string = "";
   @Input() ataque: number = 0;
   @Input() defensa: number = 0;
+  @Input() tipo: string = "";
+  @Input() salud: number = 0;
+  @Input() editMode: boolean = false;
 
-  constructor(public formBuilder: FormBuilder,) {
+  @Output() showPokemonForm = new EventEmitter<boolean>();
+
+
+
+  constructor(public formBuilder: FormBuilder,
+              public httpService: HttpService) {
 
   }
 
@@ -39,16 +52,37 @@ export class PokemonFormComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.tipo = this.TIPO_POR_DEFECTO
   }
 
-  postPokemon() {
-    const pokemon:Pokemon = {
-      nombre: this.pokemonRegisterForm.value.nombre,
-      imagen: this.pokemonRegisterForm.value.imagen,
-      defensa: this.defensa,
-      ataque: this.ataque
+  closePokemonForm() {
+    this.showPokemonForm.emit(false);
+  }
+
+  buildPokemonObject() {
+    this.pokemon = {
+      idAuthor: "0106604416",
+      name: this.pokemonRegisterForm.value.nombre,
+      image: this.pokemonRegisterForm.value.imagen,
+      defense: this.defensa,
+      attack: this.ataque,
+      hp: this.salud,
+      type: this.tipo
     }
-    console.log(pokemon)
+    if (this.editMode) {
+      this.pokemon.id = this.id
+    }
+  }
+
+  async editPokemon() {
+    this.buildPokemonObject()
+    await this.httpService.editPokemon(this.pokemon);
+  }
+
+  async createPokemon() {
+    this.buildPokemonObject()
+    await this.httpService.createPokemon(this.pokemon);
+    console.log(this.pokemon)
   }
 
   changeDefensa(event: Event) {
@@ -61,5 +95,13 @@ export class PokemonFormComponent implements OnInit {
 
   exitForm() {
 
+  }
+
+  changeSalud(event: Event) {
+    this.salud = +(event.target as HTMLInputElement).value
+  }
+
+  changeTipo(event: Event) {
+    this.tipo = (event.target as HTMLInputElement).value
   }
 }

@@ -1,6 +1,10 @@
 export class Pokemon {
-  nombre?: string;
-  imagen?: string;
-  ataque?: number;
-  defensa?: number
+  id?: number;
+  idAuthor?: string;
+  name?: string;
+  image?: string;
+  attack?: number;
+  defense?: number;
+  hp?: number;
+  type?: string;
 }

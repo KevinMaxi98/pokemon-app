@@ -85,3 +85,13 @@ input[type="range"]::-ms-fill-lower {
 input[type="range"]::-ms-fill-upper {
   background-color: #a4a4a4;
 }
+
+.form-control {
+  /*width: 420px;*/
+  align-self: center;
+  position: relative;
+  bottom: 25px;
+  left: 23px;
+  border-color: black;
+  width: 50%;
+}
