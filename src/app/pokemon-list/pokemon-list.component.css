@@ -9,11 +9,6 @@
   width: 100%;
 }
 
-.search-full-width {
-  width: 40%;
-  height: 100px;
-}
-
 .search-field {
   box-shadow: black;
   padding-left: 10px;
@@ -31,13 +26,4 @@
   bottom: 2px;
 }
 
-.horizontal-container {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-template-rows: 50px 50px;
-  grid-template-areas:
-    "a a a a b b b b"
-    "a a a a b b b b"
-    "c c c c d d d d"
-    "c c c c d d d d";
-}
+

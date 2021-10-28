@@ -1,8 +1,8 @@
 <div class="container-pokemon">
-  <h2 class="container1">Listado de Pokemon</h2>
+  <h1 class="h2">Listado de Pokemon</h1>
   <div class="horizontal-container">
-    <form class="search-box">
-      <mat-form-field class="search-full-width" appearance="outline">
+    <form class="">
+      <mat-form-field class="input-full-width" appearance="outline">
         <input class="search-field" type="tel" matInput placeholder="Buscar">
         <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>
       </mat-form-field>
@@ -36,6 +36,6 @@
     </tbody>
   </table>
   <br>
-  <app-pokemon-form></app-pokemon-form>
+  <app-pokemon-form [hidden]="false"></app-pokemon-form>
 </div>
 

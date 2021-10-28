@@ -1,2 +1,58 @@
-<p>pokemon-form works!</p>
-<input>
+<div class="form-container">
+  <p class="text-center h4">Nuevo Pokemon</p>
+  <br>
+  <div>
+    <form>
+      <div class="horizontal-container">
+        <div class="input-container">
+          <label class="form-label">Nombre: </label>
+          <mat-form-field class="input-full-width" appearance="outline">
+            <input class="form-field" type="tel" matInput >
+            <!--        <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>-->
+          </mat-form-field>
+        </div>
+        <div class="slider-container">
+          <label>
+            Ataque: &nbsp;0&nbsp;&nbsp;&nbsp;
+          </label>
+          <input class="slider" type="range" min="0" max="100" step="1" value="25">
+          <label>&nbsp;&nbsp;100</label>
+
+        </div>
+      </div>
+      <div class="horizontal-container">
+        <div class="input-container">
+          <label class="form-label">Imagen: </label>
+          <mat-form-field class="input-full-width" appearance="outline">
+            <input class="form-field" type="tel" matInput >
+            <!--        <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>-->
+          </mat-form-field>
+        </div>
+        <div class="slider-container">
+          <label>
+            Defensa: &nbsp;0&nbsp;&nbsp;&nbsp;
+          </label>
+          <input class="slider" type="range" min="0" max="100" step="1" value="25">
+          <label>&nbsp;&nbsp;100</label>
+
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+  <div class="center-horizontal-container">
+    <div></div>
+    <button mat-button class="primary-button left-center" aria-label="Add Button">
+      <mat-icon class="add-icon">save</mat-icon>
+      Guardar
+    </button>
+    <button mat-button class="primary-button right-center" aria-label="Add Button">
+      <mat-icon class="add-icon">cancel</mat-icon>
+      Cancelar
+    </button>
+    <div></div>
+  </div>
+
+
+</div>
