@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
+  public nombrePokemon: string = "";
+  public imagenPokemon: string = "";
+  public defensaPokemon: number = 0;
+  public ataquePokemon: number = 0;
+
   public showPokemonForm:Boolean = false;
 
   constructor() { }
@@ -14,7 +19,11 @@ export class PokemonListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  switchShowPokemonForm(){
+  showCreationForm(){
+    this.nombrePokemon = "";
+    this.imagenPokemon = "";
+    this.defensaPokemon = 0;
+    this.ataquePokemon = 0;
     this.showPokemonForm = !this.showPokemonForm;
   }
 

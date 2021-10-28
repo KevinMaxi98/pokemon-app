@@ -7,7 +7,7 @@
         <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>
       </mat-form-field>
     </form>
-    <button (click)="switchShowPokemonForm()" mat-button class="primary-button" aria-label="Add Button">
+    <button (click)="showCreationForm()" mat-button class="primary-button" aria-label="Add Button">
       <mat-icon class="add-icon">add</mat-icon>
       Nuevo
     </button>
@@ -45,6 +45,6 @@
     </tbody>
   </table>
   <br>
-  <app-pokemon-form [hidden]="!showPokemonForm"></app-pokemon-form>
+  <app-pokemon-form [ataque]="ataquePokemon" [defensa]="defensaPokemon" [nombre]="nombrePokemon" [imagen]="imagenPokemon" [hidden]="!showPokemonForm"></app-pokemon-form>
 </div>
 

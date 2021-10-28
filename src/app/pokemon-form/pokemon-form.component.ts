@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Pokemon} from "../../models/pokemon.model";
 
 @Component({
   selector: 'app-pokemon-form',
@@ -8,10 +9,12 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class PokemonFormComponent implements OnInit {
 
-  public ataque = 0;
-  public defensa = 0;
 
 
+  @Input() nombre: string = "";
+  @Input() imagen: string = "";
+  @Input() ataque: number = 0;
+  @Input() defensa: number = 0;
 
   constructor(public formBuilder: FormBuilder,) {
 
@@ -19,13 +22,13 @@ export class PokemonFormComponent implements OnInit {
 
   pokemonRegisterForm: FormGroup = this.formBuilder.group({
     nombre: [
-      '',
+      this.nombre,
       Validators.compose([
         Validators.required,
       ]),
     ],
     imagen: [
-      '',
+      this.imagen,
       Validators.compose([
         Validators.required,
         // Validators.pattern("[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)")
@@ -39,9 +42,13 @@ export class PokemonFormComponent implements OnInit {
   }
 
   postPokemon() {
-    console.log(this.pokemonRegisterForm.value);
-    console.log(this.ataque)
-    console.log(this.defensa)
+    const pokemon:Pokemon = {
+      nombre: this.pokemonRegisterForm.value.nombre,
+      imagen: this.pokemonRegisterForm.value.imagen,
+      defensa: this.defensa,
+      ataque: this.ataque
+    }
+    console.log(pokemon)
   }
 
   changeDefensa(event: Event) {
