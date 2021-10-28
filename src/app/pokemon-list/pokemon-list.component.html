@@ -1,1 +1,41 @@
-<p>Hello from pokemon list!</p>
+<div class="container-pokemon">
+  <h2 class="container1">Listado de Pokemon</h2>
+  <div class="horizontal-container">
+    <form class="example-form">
+      <mat-form-field class="search-full-width" appearance="outline">
+        <input class="search-field" type="tel" matInput placeholder="Buscar">
+        <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>
+      </mat-form-field>
+    </form>
+    <button mat-button class="primary-button" aria-label="Add Button">
+      <mat-icon class="add-icon">add</mat-icon>
+      Nuevo
+    </button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Ataque</th>
+      <th scope="col">Defensa</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <th scope="row">Ivysaur</th>
+      <td>
+        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/USA'" class="mr-2" style="width: 20px">
+        Imagen
+      </td>
+      <td>65</td>
+      <td>38</td>
+      <td>Acciones</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <app-pokemon-form></app-pokemon-form>
+</div>
+

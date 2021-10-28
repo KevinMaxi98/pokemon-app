@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+.primary-button {
+  /*color: blueviolet;*/
+  width: 125px;
+  height: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  background-color: #975fe5;
+  /*align-self: center;*/
+  grid-area: b;
+}
+
+.primary-button:hover {
+  background-color: blueviolet;
+}

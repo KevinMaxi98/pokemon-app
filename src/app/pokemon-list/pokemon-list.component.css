@@ -1,0 +1,48 @@
+.container-pokemon {
+  padding-top: 3em;
+  padding-left: 3em;
+  max-width: 100%;
+  padding-right: 3em;
+}
+
+.example-form {
+  /*max-width: 800px;*/
+  /*min-width: 750px;*/
+  width: 100%;
+
+
+}
+
+.search-full-width {
+  width: 40%;
+  height: 100px;
+}
+
+.search-field {
+  box-shadow: black;
+  padding-left: 10px;
+  height: 48px
+}
+
+.search-icon {
+  position: relative;
+  bottom: 8px;
+}
+
+.add-icon {
+  position: relative;
+  right: 5px;
+  bottom: 2px;
+}
+
+.horizontal-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 50px 50px;
+  grid-template-areas:
+    "a a a a b b b b"
+    "a a a a b b b b"
+    "c c c c d d d d"
+    "c c c c d d d d";
+  /*align-items: ;*/
+}
