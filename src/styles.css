@@ -16,6 +16,10 @@
   background-color: blueviolet;
 }
 
+.primary-button:disabled {
+  background-color: #e4c7ff;
+}
+
 .horizontal-container {
   display: grid;
   grid-template-columns: 2fr 3fr;

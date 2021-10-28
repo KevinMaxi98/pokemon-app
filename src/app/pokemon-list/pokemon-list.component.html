@@ -7,7 +7,7 @@
         <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>
       </mat-form-field>
     </form>
-    <button mat-button class="primary-button" aria-label="Add Button">
+    <button (click)="switchShowPokemonForm()" mat-button class="primary-button" aria-label="Add Button">
       <mat-icon class="add-icon">add</mat-icon>
       Nuevo
     </button>
@@ -23,7 +23,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr >
+    <tr>
       <th scope="row">Ivysaur</th>
       <td>
         <img [src]="'https://upload.wikimedia.org/wikipedia/commons/USA'" class="mr-2" style="width: 20px">
@@ -31,17 +31,20 @@
       </td>
       <td>65</td>
       <td>38</td>
-      <td><button mat-button class="no-background" aria-label="Add Button">
-        <mat-icon class="add-icon">edit</mat-icon>
+      <td>
+        <button (click)="showEditForm()" mat-button class="no-background" aria-label="Add Button">
+          <mat-icon class="add-icon">edit</mat-icon>
 
-      </button><button mat-button class="no-background" aria-label="Add Button">
-        <mat-icon class="add-icon">delete</mat-icon>
+        </button>
+        <button (click)="handleRemovePokemon()" mat-button class="no-background" aria-label="Add Button">
+          <mat-icon class="add-icon">delete</mat-icon>
 
-      </button></td>
+        </button>
+      </td>
     </tr>
     </tbody>
   </table>
   <br>
-  <app-pokemon-form [hidden]="false"></app-pokemon-form>
+  <app-pokemon-form [hidden]="!showPokemonForm"></app-pokemon-form>
 </div>
 

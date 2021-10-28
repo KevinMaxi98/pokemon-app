@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -28,7 +28,8 @@ import {MatSliderModule} from "@angular/material/slider";
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatSliderModule
+    MatSliderModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
