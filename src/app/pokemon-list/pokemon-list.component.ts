@@ -42,13 +42,14 @@ export class PokemonListComponent implements OnInit {
   }
 
   showCreationForm() {
+    this.editMode = false;
     this.idPokemon = 0;
     this.nombrePokemon = "";
     this.imagenPokemon = "";
     this.defensaPokemon = 0;
     this.ataquePokemon = 0;
     this.tipoPokemon = "";
-    this.saludPokemon = 0
+    this.saludPokemon = 0;
     this.showPokemonForm = true;
   }
 
@@ -76,11 +77,13 @@ export class PokemonListComponent implements OnInit {
     console.log("Editando")
   }
 
-  handleRemovePokemon(pokemon: Pokemon) {
+  async handleRemovePokemon(pokemon: Pokemon) {
     if (pokemon.id) {
-      this.httpService.deletePokemon(pokemon.id)
+      await this.httpService.deletePokemon(pokemon.id)
     }
+    await this.httpService.getPokemon()
     console.log("Eliminando")
+
   }
 
   startsWith(word: string, subword: string){

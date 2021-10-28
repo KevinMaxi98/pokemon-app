@@ -7,7 +7,7 @@
         <div class="input-container">
           <label class="form-label">Nombre: </label>
           <mat-form-field class="input-full-width" appearance="outline">
-            <input [value]="nombre" formControlName="nombre" class="form-field" type="text" matInput >
+            <input [value]="nombre" formControlName="nombre" class="" type="text" matInput >
             <!--        <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>-->
           </mat-form-field>
         </div>
@@ -24,7 +24,7 @@
         <div class="input-container">
           <label class="form-label">Imagen: </label>
           <mat-form-field class="input-full-width" appearance="outline">
-            <input [value]="imagen" formControlName="imagen" class="form-field" type="text" matInput >
+            <input [value]="imagen" formControlName="imagen" class="" type="text" matInput >
             <!--        <mat-icon class="search-icon" matPrefix>search&nbsp;</mat-icon>-->
           </mat-form-field>
         </div>
@@ -40,7 +40,7 @@
       <div class="horizontal-container">
         <div class="input-container">
           <label class="form-label">Tipo: </label>
-          <select [value]="tipo" (change)="changeTipo($event)" class="form-control">
+          <select formControlName="tipo" [value]="tipo" (change)="changeTipo($event)" class="form-control">
             <option value="water" selected>Agua</option>
             <option value="fire">Fuego</option>
             <option value="normal">Normal</option>

@@ -30,7 +30,7 @@ export class HttpService {
     }
 
     async getPokemon(){
-      return this.http.get<{ [key: number]: Pokemon}>(`https://pokemon-pichincha.herokuapp.com/pokemons/?idAuthor=1`).pipe(map(pokemons => {
+      return this.http.get<{ [key: number]: Pokemon}>(`https://pokemon-pichincha.herokuapp.com/pokemons/?idAuthor=106604416`).pipe(map(pokemons => {
         const pokemonsArray: Pokemon[] = [];
         for (const pokemon in pokemons){
           pokemonsArray.push({...pokemons[pokemon]})

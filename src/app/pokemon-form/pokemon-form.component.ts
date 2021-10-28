@@ -44,9 +44,14 @@ export class PokemonFormComponent implements OnInit {
       this.imagen,
       Validators.compose([
         Validators.required,
-        // Validators.pattern("[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)")
       ]),
     ],
+    tipo: [
+      this.tipo,
+      Validators.compose([
+        Validators.required,
+      ]),
+    ]
   });
 
 
@@ -74,15 +79,38 @@ export class PokemonFormComponent implements OnInit {
     }
   }
 
+  blankData() {
+    this.id = 0;
+    this.nombre = "";
+    this.imagen = "";
+    this.ataque = 0;
+    this.defensa = 0;
+    this.tipo = "";
+    this.salud = 0;
+    this.editMode= false;
+  }
+
   async editPokemon() {
     this.buildPokemonObject()
-    await this.httpService.editPokemon(this.pokemon);
+    await this.httpService.editPokemon(this.pokemon).then(() => {
+      this.httpService.getPokemon()
+      this.closePokemonForm()
+      this.blankData();
+    });
+
   }
 
   async createPokemon() {
     this.buildPokemonObject()
-    await this.httpService.createPokemon(this.pokemon);
+    await this.httpService.createPokemon(this.pokemon).then(() => {
+      this.httpService.getPokemon()
+      this.closePokemonForm()
+      this.blankData()
+    });
+
+
     console.log(this.pokemon)
+
   }
 
   changeDefensa(event: Event) {
