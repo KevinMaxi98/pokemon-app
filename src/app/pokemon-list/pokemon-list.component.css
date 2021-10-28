@@ -26,4 +26,12 @@
   bottom: 2px;
 }
 
+.no-background {
+  background-color: rgba(136,255,115,0);
+}
+
+.no-background:hover {
+  color: #975fe5;
+}
+
 
